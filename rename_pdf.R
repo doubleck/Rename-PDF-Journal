@@ -5,10 +5,11 @@ library(pdftools)
 setwd("F:/Dropbox New/Dropbox/Life long study/Ph.D/TRR Paper")
 ##Retrieve PDF file name
 file.name<-list.files(pattern="\\.pdf$")
+myPDF<-file.name[1]
 ##Write function for name swapping
 renamePDF<-function(myPDF){
   subject<-(pdf_info(myPDF)$keys$Subject)
-  newsubject<-gsub(".","-",subject) #substitute weird stuff in file name
+  newsubject<-gsub("…","-",subject) #substitute weird stuff in file name
   file.rename(from=myPDF,to=paste0(newsubject,".pdf"))
 }
 
